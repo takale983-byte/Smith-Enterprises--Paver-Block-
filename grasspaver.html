@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smith Enterprises | Grass Paver Block</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3krIG-0uhDU5iqbv2Xslwf-ZxQ4BYyy-_Yg&s') no-repeat center center fixed;
+    background-size:cover;
+}
+
+/* HEADER */
+header{
+    background:rgba(255,255,255,0.95);
+    padding:15px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.logo{display:flex;align-items:center;}
+.logo img{height:45px;margin-right:10px;}
+nav a{margin:0 15px;text-decoration:none;color:#333;font-weight:bold;}
+.enq-btn{
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+    color:#fff;
+    padding:8px 20px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* SLIDER */
+.slider{
+    max-width:1200px;
+    height:220px;
+    margin:30px auto;
+    overflow:hidden;
+    border-radius:15px;
+}
+.slides{
+    display:flex;
+    width:400%;
+    height:100%;
+    animation:slide 16s infinite;
+}
+.slides img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+@keyframes slide{
+    0%{margin-left:0%}
+    25%{margin-left:-100%}
+    50%{margin-left:-200%}
+    75%{margin-left:-300%}
+}
+
+/* TITLE */
+.section-title{
+    text-align:center;
+    color:#fff;
+    font-size:32px;
+    margin:40px 0 20px;
+    text-shadow:0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* PRODUCTS */
+.products{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    padding:20px;
+}
+.card{
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(12px);
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    transition:0.4s;
+}
+.card:hover{transform:translateY(-8px);}
+.card img{width:100%;height:170px;object-fit:contain;}
+.card button{
+    margin-top:10px;
+    padding:10px 22px;
+    background:#25D366;
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* CONTACT */
+.contact{
+    background:#fff;
+    padding:60px 20px;
+    text-align:center;
+}
+footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+}
+
+/* POPUP */
+#popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+}
+.popup-box{
+    background:#fff;
+    width:360px;
+    margin:120px auto;
+    padding:25px;
+    border-radius:10px;
+}
+.popup-box input,.popup-box textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+.popup-box button{
+    width:100%;
+    background:#25D366;
+    color:#fff;
+    border:none;
+    padding:12px;
+}
+.close{text-align:right;color:red;cursor:pointer;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOBl1bpf1GDvfqivrnLZmGFoMnU7WVeBOsMw&s">
+        <strong>Smith Enterprises</strong>
+    </div>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+    </nav>
+    <button class="enq-btn" onclick="openPopup('General Enquiry')">Enquire</button>
+</header>
+
+<!-- SLIDER -->
+<div class="slider">
+    <div class="slides">
+        <img src="https://tiimg.tistatic.com/fp/1/004/396/grass-pavers-987.jpg">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/10/459440386/CI/DJ/IP/27239349/artline-grass-pavers.jpg">
+        <img src="https://www.sriganapathypavers.com/images/grass-pavers-dimension.webp">
+        <img src="https://tiimg.tistatic.com/fp/1/004/396/grass-pavers-987.jpg">
+    </div>
+</div>
+
+<h2 class="section-title">Grass Paver Block</h2>
+
+<section class="products">
+    <div class="card">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/10/459440386/CI/DJ/IP/27239349/artline-grass-pavers.jpg">
+        <h4>Art Line Grass Paver</h4>
+        <button onclick="openPopup('Art Line Grass Paver')">Enquiry</button>
+    </div>
+
+    <div class="card">
+        <img src="https://www.sriganapathypavers.com/images/square-grass-paver.webp">
+        <h4>Square Grass Paver</h4>
+        <button onclick="openPopup('Square Grass Paver')">Enquiry</button>
+    </div>
+
+    <div class="card">
+        <img src="https://www.sriganapathypavers.com/images/texture-grass-paver.webp">
+        <h4>Texture Grass Paver</h4>
+        <button onclick="openPopup('Texture Grass Paver')">Enquiry</button>
+    </div>
+
+    <div class="card">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/5/306617807/VS/CP/LP/3368921/pebble-grass-paver.jpeg">
+        <h4>Pebble Grass Paver</h4>
+        <button onclick="openPopup('Pebble Grass Paver')">Enquiry</button>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 9699663136<br>💬 WhatsApp Available</p>
+</section>
+
+<footer>© 2026 Smith Enterprises</footer>
+
+<!-- POPUP -->
+<div id="popup">
+    <div class="popup-box">
+        <div class="close" onclick="closePopup()">✖</div>
+        <h3 id="prodName"></h3>
+        <input id="name" placeholder="Your Name">
+        <input id="phone" placeholder="Phone Number">
+        <textarea id="msg" placeholder="Message"></textarea>
+        <button onclick="sendWA()">Send WhatsApp</button>
+    </div>
+</div>
+
+<script>
+let selectedProduct="";
+
+function openPopup(product){
+    selectedProduct = product;              // ✅ AUTO SAVE PRODUCT
+    document.getElementById("prodName").innerText = product;
+    document.getElementById("popup").style.display="block";
+}
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+function sendWA(){
+    let name=document.getElementById("name").value;
+    let phone=document.getElementById("phone").value;
+    let msg=document.getElementById("msg").value;
+
+    let text =
+        "Product: "+selectedProduct+"\n"+
+        "Name: "+name+"\n"+
+        "Phone: "+phone+"\n"+
+        "Message: "+msg;
+
+    window.open("https://wa.me/919699663136?text="+encodeURIComponent(text),"_blank");
+}
+</script>
+
+</body>
+</html>

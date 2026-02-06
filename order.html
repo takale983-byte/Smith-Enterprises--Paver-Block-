@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enquiry | PaverPro</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("https://images.unsplash.com/photo-1597008641621-387f26e8f2a7");
+  background-size:cover;
+  background-position:center;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.form-box{
+  background:rgba(255,255,255,0.95);
+  padding:30px;
+  width:330px;
+  border-radius:12px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.4);
+}
+.form-box h3{text-align:center;margin-bottom:15px;}
+
+input,button{
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+input[readonly]{background:#eee;}
+
+button{
+  background:#1f3c57;
+  color:#fff;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+}
+button:hover{background:#ffd400;color:#000;}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+  <h3>Enquiry Now</h3>
+
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="tel" id="phone" placeholder="Mobile Number" required>
+  <input type="text" id="text" placeholder="your msg" required>
+
+
+  <button onclick="sendWhatsApp()">Send Enquiry</button>
+</div>
+
+<script>
+document.getElementById("block").value = localStorage.getItem("block");
+document.getElementById("price").value = "₹"+localStorage.getItem("price");
+
+function sendWhatsApp(){
+  let name=document.getElementById("name").value;
+  let phone=document.getElementById("phone").value;
+  let block=document.getElementById("block").value;
+  let price=document.getElementById("price").value;
+
+  let msg =
+    "Enquiry Details:%0A"+
+    "Name: "+name+"%0A"+
+    "Mobile: "+phone+"%0A"+
+    "Block: "+block+"%0A"+
+    "Price: "+price;
+
+  window.open("https://wa.me/919699663136?text="+msg,"_blank");
+}
+</script>
+
+</body>
+</html>

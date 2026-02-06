@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaverPro - Login</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('https://images.unsplash.com/photo-1581092580495-2b32d21b11e0?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    max-width: 400px;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+
+  h2 {
+    color: #1f3c57;
+    margin-bottom: 25px;
+    font-size: 26px;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: all 0.3s;
+  }
+
+  input:focus {
+    border-color: #1f3c57;
+    box-shadow: 0 0 5px rgba(31,60,87,0.5);
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(45deg,#1f3c57,#0078D4);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(45deg,#0078D4,#ffd400);
+    color: #000;
+  }
+
+  .note {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Login to PaverPro</h2>
+  <form id="loginForm">
+    <label>Email:</label>
+    <input type="email" id="email" placeholder="Enter your registered email" required>
+
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter your password" required>
+
+    <button type="submit">Login</button>
+  </form>
+  <p class="note">Don't have an account? <a href="registration.html">Register here</a></p>
+</div>
+
+<script>
+  const form = document.getElementById('loginForm');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const emailInput = document.getElementById('email').value;
+    const passwordInput = document.getElementById('password').value;
+
+    // Get stored data from localStorage
+    const storedEmail = localStorage.getItem('userEmail');
+    const storedPassword = localStorage.getItem('userPassword');
+
+    if(emailInput === storedEmail && passwordInput === storedPassword){
+      alert('Login Successful!');
+      window.location.href = 'homepage.html'; // redirect after login
+    } else {
+      alert('Invalid email or password!');
+    }
+  });
+</script>
+
+</body>
+</html>

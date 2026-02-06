@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smith Enterprises | Shot Blast Paver Block</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:url('https://plus.unsplash.com/premium_photo-1701534008693-0eee0632d47a?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGlnaHQlMjBjb2xvciUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D') no-repeat center center fixed;
+    background-size:cover;
+}
+
+/* HEADER */
+header{
+    background:rgba(255,255,255,0.95);
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.logo{display:flex;align-items:center;}
+.logo img{height:45px;margin-right:10px;}
+nav a{margin:0 12px;text-decoration:none;color:#333;font-weight:bold;}
+.enq-btn{
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+    color:#fff;
+    padding:8px 20px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* SLIDER */
+.slider-container{
+    max-width:1000px;
+    height:200px;
+    margin:20px auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    display:flex;
+    align-items:center;
+}
+.slides{
+    display:flex;
+    transition:0.5s;
+}
+.slides img{
+    width:250px; /* rectangle size */
+    height:150px;
+    object-fit:cover;
+    border-radius:8px;
+    margin:0 10px;
+    transition: transform 0.3s ease;
+}
+
+/* SLIDER NAV */
+.prev, .next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.4);
+    color:#fff;
+    padding:8px 12px;
+    border-radius:50%;
+    cursor:pointer;
+    font-weight:bold;
+    user-select:none;
+}
+.prev{left:10px;}
+.next{right:10px;}
+
+/* SECTION TITLE */
+.section-title{
+    text-align:center;
+    color:#333;
+    font-size:28px;
+    margin:30px 0 20px;
+}
+
+/* PRODUCTS GALLERY */
+.products{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:0 20px 40px;
+}
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+.card:hover{transform:translateY(-6px);}
+.card img{width:100%;height:150px;object-fit:cover;border-radius:8px;}
+.card button{
+    margin-top:10px;
+    padding:8px 18px;
+    background:#25D366;
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* POPUP */
+#popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    z-index:2000;
+}
+.popup-box{
+    background:#fff;
+    width:350px;
+    margin:100px auto;
+    padding:25px;
+    border-radius:10px;
+}
+.popup-box input,.popup-box textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+.popup-box button{
+    width:100%;
+    background:#25D366;
+    color:#fff;
+    border:none;
+    padding:12px;
+    cursor:pointer;
+}
+.close{text-align:right;color:red;cursor:pointer;}
+
+/* CONTACT & FOOTER */
+.contact{
+    background:#fff;
+    padding:50px 20px;
+    text-align:center;
+}
+footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOBl1bpf1GDvfqivrnLZmGFoMnU7WVeBOsMw&s">
+        <strong>Smith Enterprises</strong>
+    </div>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+    </nav>
+    <button class="enq-btn" onclick="openPopup('General Enquiry')">Enquire</button>
+</header>
+
+<!-- SLIDER -->
+<div class="slider-container">
+    <div class="slides" id="slides">
+        <img src="https://www.sriganapathypavers.com/images/shot-blast-cut-paver-blocks.webp">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvCE8sv_W3q5NU4Z1Db-47FbkV7T4AOIQVYQ&s">
+        <img src="https://www.sriganapathypavers.com/images/shot-blast-five-combo-flexi-pavers.webp">
+        <img src="https://www.sriganapathypavers.com/images/shot-blast-paver-installation.webp">
+        <img src="https://www.sriganapathypavers.com/images/shot-blast-h-paver-blocks.webp">
+    </div>
+    <div class="prev" onclick="prevSlide()">❮</div>
+    <div class="next" onclick="nextSlide()">❯</div>
+</div>
+
+<h2 class="section-title">Shot Blast Paver Blocks</h2>
+
+<section class="products">
+    <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_fvIL8037Nz9z-Npig6Si8nFvtD-77-FwnQ&s">
+        <h4>Zig Zag Block </h4>
+        <button onclick="openPopup('Shot Blast Paver 1')">Enquiry</button>
+    </div>
+    <div class="card">
+        <img src="https://5.imimg.com/data5/YR/JV/MY-35500883/colored-paver-block-500x500.jpg">
+        <h4>colorado  Paver block </h4>
+        <button onclick="openPopup('Shot Blast Paver 2')">Enquiry</button>
+    </div>
+    <div class="card">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2025/5/511688136/YN/ZG/MQ/7990260/pencil-paver-blocks.jpg">
+        <h4>pencile Shape  Paver 3</h4>
+        <button onclick="openPopup('Shot Blast Paver 3')">Enquiry</button>
+    </div>
+   
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 9699663136<br>💬 WhatsApp Available</p>
+</section>
+
+<footer>© 2026 Smith Enterprises</footer>
+
+<!-- POPUP -->
+<div id="popup">
+    <div class="popup-box">
+        <div class="close" onclick="closePopup()">✖</div>
+        <h3 id="prodName"></h3>
+        <input id="name" placeholder="Your Name">
+        <input id="phone" placeholder="Phone Number">
+        <textarea id="msg" placeholder="Message"></textarea>
+        <button onclick="sendWA()">Send WhatsApp</button>
+    </div>
+</div>
+
+<script>
+let selectedProduct="";
+let slideIndex = 0;
+const slides = document.getElementById('slides');
+const totalSlides = slides.children.length;
+
+function openPopup(product){
+    selectedProduct = product;
+    document.getElementById("prodName").innerText = product;
+    document.getElementById("popup").style.display="block";
+}
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+function sendWA(){
+    let name=document.getElementById("name").value;
+    let phone=document.getElementById("phone").value;
+    let msg=document.getElementById("msg").value;
+
+    let text =
+        "Product: "+selectedProduct+"\n"+
+        "Name: "+name+"\n"+
+        "Phone: "+phone+"\n"+
+        "Message: "+msg;
+
+    window.open("https://wa.me/919699663136?text="+encodeURIComponent(text),"_blank");
+}
+
+// Slider functions with rectangle scroll
+function showSlide(){
+    for(let i=0;i<totalSlides;i++){
+        slides.children[i].style.transform="scale(0.9)";
+    }
+    slides.children[slideIndex].style.transform="scale(1)";
+    slides.style.marginLeft=(-slideIndex*270)+"px";
+}
+
+function nextSlide(){
+    slideIndex++;
+    if(slideIndex>=totalSlides-3){ 
+        slideIndex=0;
+    }
+    showSlide();
+}
+
+function prevSlide(){
+    slideIndex--;
+    if(slideIndex<0){
+        slideIndex=totalSlides-3;
+    }
+    showSlide();
+}
+
+// Auto slide
+setInterval(()=>{ nextSlide(); },4000);
+
+showSlide(); // initial
+</script>
+
+</body>
+</html>

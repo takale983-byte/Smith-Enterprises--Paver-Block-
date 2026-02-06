@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaverPro - Registration</title>
+<style>
+  /* Full-page background image */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('https://content.jdmagicbox.com/quickquotes/images_main/hollow-stone-garden-paver-block-802507385-ojb2jvgm.jpg?impolicy=queryparam&im=Resize=(360,360),aspect=fit') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* Registration container */
+  .container {
+    max-width: 400px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+
+  h2 {
+    color: #1f3c57;
+    margin-bottom: 25px;
+    font-size: 26px;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: all 0.3s;
+  }
+
+  input:focus {
+    border-color: #1f3c57;
+    box-shadow: 0 0 5px rgba(31,60,87,0.5);
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(45deg,#1f3c57,#0078D4);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(45deg,#0078D4,#ffd400);
+    color: #000;
+  }
+
+  /* Small note under the form */
+  .note {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Register with PaverPro</h2>
+    <form id="registrationForm">
+      <label>Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label>Phone:</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <label>Password:</label>
+      <input type="password" id="password" placeholder="Enter password" required>
+
+      <button type="submit">Register</button>
+    </form>
+    <p class="note">Already registered? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+
+      // Save to localStorage
+      localStorage.setItem('userName', name);
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userPhone', phone);
+      localStorage.setItem('userPassword', password);
+
+      alert('Registration Successful!');
+
+      window.location.href = 'homepage.html';
+    });
+  </script>
+
+</body>
+</html>

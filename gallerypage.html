@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaverPro - Gallery</title>
+  <style>
+    body {margin:0; font-family:"Poppins",sans-serif; background-color:#f5f7fb;}
+    header {background-color:#1f3c57;color:#fff;padding:14px 40px; display:flex; justify-content:space-between;align-items:center;}
+    .logo{font-weight:700;font-size:22px;}
+    nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0;}
+    nav a{text-decoration:none;color:#fff;font-weight:500;}
+    nav a:hover{color:#ffd400;}
+    .gallery-container{max-width:1200px;margin:60px auto;padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+    .card{background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.15);overflow:hidden;text-align:center;transition:transform 0.3s;padding-bottom:15px;}
+    .card:hover{transform:translateY(-6px);}
+    .card img{width:100%;height:200px;object-fit:cover;}
+    .card h3{margin:12px 0 4px;color:#222;}
+    .card p{color:#333;font-weight:600;}
+    .card button{margin:8px;padding:10px 18px;border:none;border-radius:6px;background-color:#1f3c57;color:#fff;font-weight:600;cursor:pointer;transition:0.2s;}
+    .card button:hover{background-color:#ffd400;color:#000;}
+    footer{background:#1f3c57;color:#fff;text-align:center;padding:12px 0;margin-top:40px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">PaverPro</div>
+  <nav>
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="Aboutpage.html">About Us</a></li>
+      <li><a class="active" href="gellaerypage.html">Gallery</a></li>
+      <li><a href="calculatepage.html">Calculator</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="gallery-container">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="https://images.jdmagicbox.com/quickquotes/images_main/square-shape-paver-blocks-2217102470-1uos18r2.jpg" alt="Square Shape Block">
+      <h3>Square Shape Block</h3>
+      <p>₹4500/Brass</p>
+      <button class="calc-btn" onclick="location.href='calculatepage.html'">Calculate</button>
+      <button class="order-btn" data-name="Square Shape Block" data-price="4500">Order Now</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/LE/OX/ME/78856509/i-shaped-paver-blocks.jpg" alt="I Shaped Block">
+      <h3>I Shaped Block</h3>
+      <p>₹4500/Brass</p>
+      <button class="calc-btn" onclick="location.href='calculatepage.html'">Calculate</button>
+      <button class="order-btn" data-name="I Shaped Block" data-price="4500">Order Now</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/WU/FJ/FE/84250091/red-zig-zag-intarloking-paver-block-80mm-grade-m40m35-required-pwrd.png" alt="Zig Zag Block">
+      <h3>Zig Zag Block</h3>
+      <p>₹4500/Brass</p>
+      <button class="calc-btn" onclick="location.href='calculatepage.html'">Calculate</button>
+      <button class="order-btn" data-name="Zig Zag Block" data-price="4500">Order Now</button>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <img src="https://cpimg.tistatic.com/5632505/b/1/colorado-interlocking-paver-block.jpg" alt="Colorado Block">
+      <h3>Colorado Block</h3>
+      <p>₹4500/Brass</p>
+      <button class="calc-btn" onclick="location.href='calculatepage.html'">Calculate</button>
+      <button class="order-btn" data-name="Colorado Block" data-price="4500">Order Now</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  📞 +91 9876543210 | ✉ paverpro@gmail.com
+</footer>
+
+<script>
+  // प्रत्येक order बटणावर क्लिक इव्हेंट
+  document.querySelectorAll('.order-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const blockName = btn.getAttribute('data-name');
+      const blockPrice = btn.getAttribute('data-price');
+
+      // localStorage मध्ये माहिती साठवा
+      localStorage.setItem('selectedBlock', blockName);
+      localStorage.setItem('selectedPrice', blockPrice);
+
+      // order पेजकडे जा
+      window.location.href = 'order.html';
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="mr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smith - Enterprise - About Us</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent: #ffd400;
+      --dark: rgba(12,12,12,0.85);
+      --panel: rgba(20,20,20,0.55);
+      --max-width: 1050px; /* header width कमी */
+      --radius: 14px;
+      --gap: 24px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      color:#e6e6e6;
+      line-height:1.6;
+      background:url('https://t4.ftcdn.net/jpg/01/70/32/39/360_F_170323981_zOtXjlnanKyziwnrCBXcTknW3I2Z4CZu.jpg') no-repeat center center fixed;
+      background-size:cover;
+      min-height:100vh;
+    }
+
+    /* ===== HEADER ===== */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:40;
+      backdrop-filter:blur(6px);
+      background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35));
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+    .nav{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 20px; /* header height कमी */
+    }
+    .logo{
+      font-weight:800;
+      font-size:20px;
+      color:#fff;
+    }
+    nav ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      color:#ddd;
+      font-weight:600;
+    }
+    nav a.active,nav a:hover{color:var(--accent);}
+    .lang{
+      border:1px solid rgba(255,255,255,0.12);
+      background:transparent;
+      color:#fff;
+      padding:6px 8px;
+      border-radius:6px;
+    }
+
+    /* ===== PAGE CONTENT ===== */
+    .page{
+      padding-top:120px; /* header खाली space */
+      padding-bottom:100px; /* खाली padding वाढवले */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+    }
+
+    .card-wrap{
+      width:94%;
+      max-width:1000px;
+      background:linear-gradient(180deg,rgba(0,0,0,0.55),rgba(0,0,0,0.55));
+      border-radius:var(--radius);
+      padding:40px;
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+      display:flex;
+      gap:var(--gap);
+      align-items:flex-start;
+      backdrop-filter:blur(6px);
+      position:relative;
+      transform:translateY(10px); /* थोडं खाली हलवलं */
+      transition:all 0.3s ease;
+    }
+    .card-wrap:hover{
+      transform:translateY(0px) scale(1.02); /* hover effect */
+    }
+
+    h1.section-title{
+      width:100%;
+      text-align:center;
+      color:var(--accent);
+      font-size:42px;
+      margin:-62px auto 20px;
+      text-shadow:0 6px 18px rgba(0,0,0,0.6);
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .card{
+      display:grid;
+      grid-template-columns:350px 1fr;
+      gap:22px;
+      align-items:center;
+      width:100%;
+    }
+
+    .img-frame{
+      padding:8px;
+      border-radius:18px;
+      border:4px solid var(--accent);
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12));
+      box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    }
+    .img-frame img{
+      display:block;
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      border-radius:12px;
+    }
+
+    .about-text p{
+      color:#dcdcdc;
+      margin:0 0 16px 0;
+      font-size:16px;
+    }
+
+    .contact-strip{
+      position:fixed;
+      left:0;right:0;bottom:0;
+      display:flex;
+      justify-content:center;
+      padding:10px 0;
+      background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.8));
+      color:#fff;
+      font-weight:600;
+      gap:18px;
+      z-index:50;
+      border-top:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* responsive */
+    @media(max-width:980px){
+      .card{grid-template-columns:1fr;}
+      .img-frame img{height:200px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">PaverPro</div>
+      <nav>
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a class="active" href="Aboutpage.html">About Us</a></li>
+          <li><a href="gallerypage.html">Gallery</a></li>
+          <li><a href="calculator.html">Calculator</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <select id="langSelect" class="lang">
+              <option value="en">English</option>
+              <option value="mr">मराठी</option>
+              <option value="hi">हिंदी</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <h1 class="section-title">About Us</h1>
+
+    <div class="card-wrap">
+      <div class="card">
+        <div class="img-frame">
+          <img src="https://cdn.pixabay.com/photo/2020/09/10/13/20/paver-5561233_960_720.jpg" alt="Paver blocks">
+        </div>
+
+        <div class="about-text" id="aboutText">
+          <!-- Language Text Dynamically Changes Here -->
+          <p>Welcome to <strong>Smith Enterprises</strong>! We manufacture high-quality paver blocks that are perfect for your dream project. With over 10 years of experience, premium materials, and on-time delivery, we stand out in the industry.</p>
+          <p>We offer a wide variety of designs, colors, and sizes, suitable for homes, offices, gardens, and public spaces.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="contact-strip">
+    📞 +91 9876543210 | ✉ info@smith-enterprise.com
+  </div>
+
+  <script>
+    const aboutText = document.getElementById("aboutText");
+    const langSelect = document.getElementById("langSelect");
+
+    const content = {
+      en: `
+        <p>Welcome to <strong>Smith Enterprises</strong>! We manufacture high-quality paver blocks that are perfect for your dream project. With over 10 years of experience, premium materials, and on-time delivery, we stand out in the industry.</p>
+        <p>We offer a wide variety of designs, colors, and sizes, suitable for homes, offices, gardens, and public spaces.</p>
+      `,
+      mr: `
+        <p><strong>Smith Enterprises</strong> मध्ये आपले स्वागत आहे! आम्ही उत्कृष्ट दर्जाचे पेव्हर ब्लॉक्स तयार करतो जे तुमच्या स्वप्नातील प्रोजेक्टसाठी योग्य आहेत. 10 वर्षांहून अधिक अनुभव आणि वेळेवर वितरणामुळे आम्ही उद्योगात वेगळे ठरतो.</p>
+        <p>आमच्याकडे विविध रंग, आकार आणि डिझाईन्स उपलब्ध आहेत जे घर, ऑफिस, बाग आणि सार्वजनिक ठिकाणांसाठी उपयुक्त आहेत.</p>
+      `,
+      hi: `
+        <p><strong>Smith Enterprises</strong> में आपका स्वागत है! हम उच्च गुणवत्ता वाले पेवर ब्लॉक्स बनाते हैं जो आपके सपनों की परियोजना के लिए परफेक्ट हैं। 10 साल से अधिक के अनुभव और समय पर डिलीवरी के साथ, हम उद्योग में अलग पहचान रखते हैं।</p>
+        <p>हम विभिन्न डिज़ाइन, रंग और आकार के पेवर ब्लॉक्स प्रदान करते हैं जो घर, कार्यालय, बगीचे और सार्वजनिक स्थानों के लिए उपयुक्त हैं।</p>
+      `
+    };
+
+    langSelect.addEventListener("change", e => {
+      const lang = e.target.value;
+      aboutText.innerHTML = content[lang];
+    });
+  </script>
+
+</body>
+</html>

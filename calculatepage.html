@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Price Calculator | PaverPro</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #555;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .price-info {
+      margin-top: 20px;
+      background: #eef;
+      padding: 15px;
+      border-radius: 5px;
+      color: #333;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #007800;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Price Calculator</h2>
+    <div class="price-info">
+      <p><strong>Product:</strong> Default Block</p>
+      <p><strong>Price:</strong> ₹450.00 / 1m²</p>
+    </div>
+
+    <label for="length">Length (meters):</label>
+    <input type="number" id="length" placeholder="e.g., 5" />
+
+    <label for="width">Width (meters):</label>
+    <input type="number" id="width" placeholder="e.g., 4" />
+
+    <label for="blockType">Block Type / Size:</label>
+    <select id="blockType">
+      <option value="5.26">Rectangle 200 x 100 mm (Typical) — 1m² = 5.26 blocks</option>
+      <option value="4.00">Square 200 x 200 mm — 1m² = 4 blocks</option>
+      <option value="2.78">Hexagonal 240 mm — 1m² = 2.78 blocks</option>
+    </select>
+
+    <label for="blockCount">Number of Blocks (auto calculated):</label>
+    <input type="number" id="blockCount" readonly />
+
+    <button onclick="calculatePrice()">Calculate</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculatePrice() {
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      const blockFactor = parseFloat(document.getElementById('blockType').value);
+      const pricePerSqM = 450;
+
+      if (isNaN(length) || isNaN(width)) {
+        document.getElementById('result').textContent = "Please enter valid dimensions.";
+        return;
+      }
+
+      const area = length * width; // m²
+      const totalBlocks = area * blockFactor; // block count
+      const totalPrice = area * pricePerSqM;
+
+      // Autofill block count
+      document.getElementById('blockCount').value = totalBlocks.toFixed(0);
+
+      document.getElementById('result').textContent = 
+        `Total Area: ${area.toFixed(2)} m² | Total Blocks: ${totalBlocks.toFixed(0)} | Total Price: ₹${totalPrice.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paver Block Management - Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f2f3f7;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #2c3e50;
+      color: #fff;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: #1abc9c;
+      border-left: 5px solid #fff;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      background: #ecf0f1;
+      overflow-y: auto;
+    }
+
+    .header {
+      background: #fff;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .header h2 {
+      color: #333;
+    }
+
+    .header .logout-btn {
+      background: #e74c3c;
+      border: none;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .dashboard {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #2c3e50;
+    }
+
+    .card p {
+      font-size: 22px;
+      color: #1abc9c;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="homepage.html">🏠 Dashboard</a>
+    <a href="#">🧱 Manage Products</a>
+    <a href="#">📦 Orders</a>
+    <a href="#">👥 Customers</a>
+    <a href="#">📊 Reports</a>
+    <a href="#">⚙️ Settings</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h2>Welcome, Admin</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="dashboard">
+      <div class="card">
+        <h3>Total Products</h3>
+        <p>58</p>
+      </div>
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p>126</p>
+      </div>
+      <div class="card">
+        <h3>Total Customers</h3>
+        <p>45</p>
+      </div>
+      <div class="card">
+        <h3>Revenue</h3>
+        <p>₹1,20,500</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Smith Enterprises | Paver Block Management System</p>
+    </footer>
+  </div>
+
+  <script>
+    function logout() {
+      alert("You have been logged out!");
+      window.location.href = "login.html"; // redirect to login page
+    }
+  </script>
+</body>
+</html>

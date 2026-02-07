@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smith Enterprises | Paver Block</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+}
+
+/* ===== HEADER ===== */
+header{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 50px;
+    background:#fff;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:orange;
+}
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#333;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+    position:relative;
+    height:350px;
+    overflow:hidden;
+}
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:none;
+    color:white;
+}
+.slide.active{
+    display:flex;
+}
+.slide-content{
+    width:50%;
+    padding:60px;
+}
+.slide-content h1{
+    font-size:36px;
+}
+.slide-content button{
+    padding:12px 25px;
+    border:none;
+    background:#25D366;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+/* ===== IMAGE STYLE ===== */
+.slide img{
+    width:50%;
+    object-fit:cover;
+    border-radius:0 0 0 140px;
+    transform:scale(1.05) skewX(-3deg);
+    box-shadow:-15px 0 30px rgba(0,0,0,0.3);
+    transition:0.6s ease;
+}
+.slide.active img{
+    transform:scale(1) skewX(0deg);
+}
+
+/* ===== INFO SECTION ===== */
+.why-section{
+    background:#fafafa;
+    padding:60px 20px;
+    text-align:center;
+}
+.why-section h2{
+    font-size:32px;
+    margin-bottom:50px;
+    color:#333;
+}
+.features{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap:40px;
+    max-width:1100px;
+    margin:auto;
+}
+.feature-box{
+    text-align:center;
+}
+.icon{
+    width:90px;
+    height:90px;
+    background:#f58220;
+    border-radius:50%;
+    margin:0 auto 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:36px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+.feature-box p{
+    margin:0;
+    font-size:15px;
+    color:#444;
+    font-weight:600;
+}
+.view-more{
+    cursor:pointer;
+    transition:0.3s;
+}
+.view-more:hover{
+    transform:scale(1.1);
+}
+
+/* TESTIMONIAL SECTION */
+.testimonial-section{
+    background:#eae6e1;
+    padding:70px 20px;
+}
+.testimonial-section h2{
+    font-size:32px;
+    color:#333;
+    margin-bottom:50px;
+    text-align:left;
+    max-width:1100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.testimonial-wrapper{
+    display:flex;
+    gap:40px;
+    max-width:1100px;
+    margin:auto;
+    flex-wrap:wrap;
+}
+.testimonial-card{
+    background:#f7f4ef;
+    padding:35px;
+    flex:1;
+    min-width:300px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+.testimonial-card h3{
+    color:#e46b1c;
+    margin-bottom:15px;
+    font-size:20px;
+}
+.testimonial-card p{
+    font-size:15px;
+    line-height:1.7;
+    color:#444;
+}
+
+/* QUOTE BAR */
+.quote-bar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
+    padding:35px 20px;
+    background:linear-gradient(90deg,#f6b01e,#f58220,#e4572e);
+}
+.quote-bar h3{
+    color:#fff;
+    font-size:26px;
+    margin:0;
+}
+.quote-btn{
+    background:#b80000;
+    color:#fff;
+    padding:12px 28px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:4px;
+    transition:0.3s;
+}
+.quote-btn:hover{
+    background:#900000;
+}
+
+/* ===== ENQUIRY MODAL ===== */
+.modal-bg{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+.modal-content{
+    background:#fff;
+    padding:30px;
+    border-radius:8px;
+    max-width:450px;
+    width:90%;
+    position:relative;
+}
+.modal-content h2{text-align:center;color:#e46b1c;margin-bottom:20px;}
+.modal-content input, .modal-content textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    font-size:15px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+.modal-content button{
+    background:#25D366;
+    color:white;
+    font-weight:bold;
+    padding:12px;
+    border:none;
+    border-radius:4px;
+    width:100%;
+    font-size:16px;
+}
+.close-modal{
+    position:absolute;
+    top:10px; right:15px;
+    font-size:22px;
+    cursor:pointer;
+    color:#444;
+}
+
+/* FOOTER */
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">SMITH ENTERPRISES</div>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="gallerypage.html">Products</a>
+        <a href="calculatepage.html">calculate Area</a>
+        <a href="contact.html">Contact</a>
+  <a href="Aboutpage.html">About Company </a>
+<a href="Registrationpage.html">Registration</a>
+<a href="login.html">Login </a>
+    </nav>
+</header>
+
+<!-- SLIDER -->
+<div class="slider">
+    <!-- Banner 1 -->
+    <div class="slide active" style="background:orange;">
+        <div class="slide-content">
+            <h1>Grass Paver Blocks</h1>
+            <p>Eco-friendly & modern pavement solution</p>
+            <!-- View More opens page now -->
+            <button onclick="window.location.href='grasspaver.html'">View More</button>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6xizXiAJTmr8m_mSjz5GCv5v8Y9GnxOub2w&s">
+    </div>
+
+    <!-- Banner 2 -->
+    <div class="slide" style="background:#444;">
+        <div class="slide-content">
+            <h1>Normal Shape Paver Block</h1>
+            <p>Strong interlocking for heavy traffic</p>
+            <button onclick="window.location.href='normal-paver.html'">View More</button>
+        </div>
+        <img src="https://www.sriganapathypavers.com/images/cement-paving-blocks.webp">
+    </div>
+
+    <!-- Banner 3 -->
+    <div class="slide" style="background:#2e7d32;">
+        <div class="slide-content">
+            <h1>Shot Blast Shape Paver Blocks</h1>
+            <p>Best for industrial & road usage</p>
+            <button onclick="window.location.href='shot-blast-paver.html'">View More</button>
+        </div>
+        <img src="https://thumbs.dreamstime.com/b/durable-concrete-paver-blocks-transform-your-outdoor-spaces-stylish-affordable-paving-solutions-create-beautiful-pathways-371033143.jpg">
+    </div>
+</div>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+    <h2>Why choose Smith Enterprises Pavers?</h2>
+    <div class="features">
+        <div class="feature-box"><div class="icon">🧱</div><p>Durable</p></div>
+        <div class="feature-box"><div class="icon">🏃</div><p>Faster Renovation</p></div>
+        <div class="feature-box"><div class="icon">☀️</div><p>Weather Resistance</p></div>
+        <div class="feature-box"><div class="icon">🎨</div><p>Extensive Collections</p></div>
+        <div class="feature-box"><div class="icon">🌱</div><p>Eco-Friendly</p></div>
+        <div class="feature-box"><div class="icon">💪</div><p>Higher Endurance</p></div>
+        <div class="feature-box"><div class="icon">🧼</div><p>Easy Maintenance</p></div>
+        <div class="feature-box"><div class="icon">🔧</div><p>Anti-Skid</p></div>
+        <div class="feature-box"><div class="icon">🚚</div><p>High Load Bearing Capacity</p></div>
+        <div class="feature-box"><div class="icon view-more" onclick="openModal('All Products')">»»</div><p>View More</p></div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+    <h2>What our client says</h2>
+    <div class="testimonial-wrapper">
+        <div class="testimonial-card">
+            <h3>Outdoor Pavement Solution</h3>
+            <p>We were planning to construct our manufacturing facility outdoor pavement with paver blocks. Our engineer referred us to procure from Smith Enterprises Pavers, the paver block manufacturers. We were highly satisfied with the quality they offer. Until now, we did not do any maintenance work, though heavy vehicles are in frequent transit.</p>
+        </div>
+        <div class="testimonial-card">
+            <h3>Aesthetical Value</h3>
+            <p>When we approached Smith Enterprises – Paver Blocks Manufacturers in Coimbatore, we were so happy to come across various collections of pavement blocks with unique colours. We decided that we procured at the right place. After installation, it enhanced our gated community’s outdoor aesthetics. I strongly recommend you choose Smith Enterprises Pavers.</p>
+        </div>
+    </div>
+</section>
+
+<!-- LATEST PROJECTS -->
+<section class="latest-projects">
+    <h2>Latest Projects</h2>
+    <div class="project-grid">
+        <img src="https://images.jdmagicbox.com/quickquotes/images_main/designer-paver-blocks-2215433634-ilxlg48m.jpg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNS8Fa5M0ZeFnk_jCdnWayJrh3W4fWcfHQoQ&s">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAwfXDb4r8E0DBhQ0ZOcnEH_54esQN96NxfA&s">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbHxxcGCFIRldi07UUMPXauetTKCG7gaoI_Q&s">
+    </div>
+</section>
+
+<!-- ENQUIRY MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()">×</span>
+    <h2 id="productName">Product Enquiry</h2>
+    <form id="enquiryForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <textarea name="message" rows="4">I am interested in this product.</textarea>
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<!-- QUOTE BAR -->
+<section class="quote-bar">
+    <h3>Get the best quote from us</h3>
+    <a href="#" class="quote-btn" onclick="openModal('Quote Request')">Send Enquiry</a>
+</section>
+
+<footer>
+    © 2026 Smith Enterprises | Paver Block
+</footer>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+setInterval(()=>{
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+},4000);
+
+// Open modal and set product name
+function openModal(product){
+    document.getElementById('modal').style.display='flex';
+    document.getElementById('productName').innerText = product + " Enquiry";
+    document.querySelector("#enquiryForm textarea").value = "I am interested in " + product + ".";
+}
+
+// Close modal
+function closeModal(){
+    document.getElementById('modal').style.display='none';
+}
+
+// Form submit → WhatsApp
+document.getElementById("enquiryForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const message = form.message.value;
+    const number = "919699663136"; // Owner number
+    const url = "https://wa.me/" + number + "?text=" + encodeURIComponent(
+        "Hello Smith Enterprises,\nName: "+name+"\nEmail: "+email+"\nPhone: "+phone+"\nMessage: "+message
+    );
+    window.open(url,"_blank");
+    closeModal();
+});
+</script>
+
+</body>
+</html>
